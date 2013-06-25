@@ -9,7 +9,10 @@
 
 Create an animated GIF from the [PastPages](http://www.pastpages.org) news homepage archive. An experiment with the [PastPages API](http://blog.pastpages.org/post/53734104165/say-hello-to-the-pastpages-api).
 
-h3. Examples
+Examples
+------------
+
+Start with something simple
 
 ```python
 import pastpages2gif
@@ -26,6 +29,8 @@ pastpages2gif.get_site(
 
 ![BBC Fiscal Cliff](https://raw.github.com/pastpages/pastpages2gif/master/samples/bbc.gif)
 
+Now with timezones
+
 ```python
 import pytz
 import pastpages2gif
@@ -34,7 +39,6 @@ from datetime import datetime
 pastpages2gif.get_site(
     "./boston-bombing.gif",
     "bostoncom",
-    # Now with timezones
     datetime(2013, 4, 15, 11, 0, 0).replace(tzinfo=pytz.timezone("US/Eastern")),
     datetime(2013, 4, 17, 11, 0, 0).replace(tzinfo=pytz.timezone("US/Eastern")),
     verbose=True
@@ -43,6 +47,7 @@ pastpages2gif.get_site(
 
 ![Boston Bombing](https://raw.github.com/pastpages/pastpages2gif/master/samples/boston-bombing.gif)
 
+Now with custom speed and size
 
 ```python
 import pytz
@@ -54,7 +59,6 @@ pastpages2gif.get_site(
     "drudge-report",
     datetime(2012, 11, 6, 4, 0, 0).replace(tzinfo=pytz.timezone("US/Eastern")),
     datetime(2012, 11, 7, 4, 0, 0).replace(tzinfo=pytz.timezone("US/Eastern")),
-    # Now with custom speed and size
     duration=1.0,
     max_width=900,
     max_height=2000,
